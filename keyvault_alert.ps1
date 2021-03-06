@@ -1,9 +1,8 @@
-Install-Module -Name AzureRM -RequiredVersion 6.13.1 -AllowClobber -Scope AllUsers -Force
-Install-Module -Name AzureRM.profile -RequiredVersion 5.8.3 -AllowClobber -Scope AllUsers -Force
+Install-Module -Name Az.Profile -RequiredVersion 0.7.0 -AllowClobber -Scope CurrentUser -Force
 
-Write-Host 'Importing AzureRM.profile'
+Write-Host 'Importing Az.Profile'
 try {
-    $m = Get-Module -ListAvailable AzureRM.profile
+    $m = Get-Module -ListAvailable Az.Profile
     Import-Module -ModuleInfo $m
 }
 catch [System.Reflection.ReflectionTypeLoadException] {
@@ -11,11 +10,11 @@ catch [System.Reflection.ReflectionTypeLoadException] {
     exit
 }
 
-Install-Module -Name AzureRM.KeyVault -RequiredVersion 5.2.1 -AllowClobber -Scope AllUsers -Force
+Install-Module -Name Az.KeyVault -RequiredVersion 3.4.0 -AllowClobber -Scope CurrentUser -Force
 
-Write-Host 'Importing AzureRM.KeyVault'
+Write-Host 'Importing Az.KeyVault'
 try {
-    $m = Get-Module -ListAvailable AzureRM.KeyVault
+    $m = Get-Module -ListAvailable Az.KeyVault
     Import-Module -ModuleInfo $m
 }
 catch [System.Reflection.ReflectionTypeLoadException] {
